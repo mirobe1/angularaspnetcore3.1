@@ -1,0 +1,11 @@
+    <div class="card" style="width: 18rem;">
+    <img [src]="imageToShow" class="card-img-top" alt="..." height="188">
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.Name}}</h5>
+      <p class="card-text">{{recipe.Description}}</p>
+      <p class="card-text">{{recipe.Ingredients | ingredients}}</p>
+      <button class="btn btn-primary" [routerLink]="['/account/recipe', recipe.RecipeId]">Edit</button>
+      <button class="btn btn-danger float-end" (click)="onDelete(recipe.RecipeId)">Delete</button>
+    </div>
+  </div>
+

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']" href="#">Recepies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li *ngIf="!account.Role" class="nav-item">
+          <a class="nav-link" [routerLink]="['/signup']" [routerLinkActive]="'active'" href="#">Sign up</a>
+        </li>
+        <li *ngIf="!account.Role" class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="'active'" href="#">Login</a>
+        </li>
+        <li *ngIf="account.Role == 'Admin'" class="nav-item">
+          <a class="nav-link" [routerLink]="['/admin']" [routerLinkActive]="'active'" href="#">Admin</a>
+        </li>
+        <li *ngIf="account.Role == 'User'" class="nav-item">
+          <a class="nav-link" [routerLink]="['/account']" [routerLinkActive]="'active'" href="#">Account</a>
+        </li>
+        <li *ngIf="account.Role == 'User'" class="nav-item">
+          <a class="nav-link" [routerLink]="['/account/recipe']" [routerLinkActive]="'active'" href="#">Add Recipe</a>
+        </li>
+        <li *ngIf="account.Role" class="nav-item">
+          <a class="nav-link" (click)="Logout()" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<alert></alert>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col"></div>
+  </div>
+  
+</div>
+<app-spinner></app-spinner>

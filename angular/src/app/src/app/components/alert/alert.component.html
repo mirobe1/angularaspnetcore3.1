@@ -1,0 +1,8 @@
+<div *ngIf="isActive" class="container">
+    <div class="m-3">
+            <div class="{{cssClasses(alert)}}">
+                <span [innerHTML]="alert.message"></span>
+                <button *ngIf="isActive" class="btn-close float-end" (click)="removeAlert()"></button>
+        </div>
+    </div>
+</div>

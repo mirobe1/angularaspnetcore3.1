@@ -1,0 +1,17 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let acc of accounts">
+        <td>{{acc.FirstName}}</td>
+        <td>{{acc.LastName}}</td>
+        <td>{{acc.UserName}}</td>
+        <td><button class="btn btn-danger" (click)="DeleteAccount(acc.AccountId)">Delete</button></td>
+      </tr>
+    </tbody>

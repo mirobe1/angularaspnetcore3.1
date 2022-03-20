@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+  
+  <form #formaSignup="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="FirstName">First Name</label>
+    <input type="text" class="form-control" #fName="ngModel" [class.border-danger]="!fName.valid && fName.touched" id="FirstName" name="FirstName" [(ngModel)]="account.FirstName" placeholder="First Name" required>
+  </div>
+  <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control" #lName="ngModel" [class.border-danger]="!lName.valid && lName.touched" id="LastName" name="LastName" [(ngModel)]="account.LastName" placeholder="Last Name" required>
+      </div>
+      <div class="form-group">
+        <label for="UserName">User Name</label>
+        <input type="text" class="form-control" #uName="ngModel" [class.border-danger]="!uName.valid && uName.touched" id="UserName" name="UserName" [(ngModel)]="account.UserName" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <label for="EMailAddress">User Name</label>
+        <input type="email" class="form-control" #eMail="ngModel" [class.border-danger]="!eMail.valid && eMail.touched" id="EMailAddress" name="EMailAddress" [(ngModel)]="account.EMailAddress" placeholder="EMail Address" email required>
+      </div>
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" #pass="ngModel" (keyup)="CheckPasswords()" [class.border-danger]="!pass.valid && pass.touched" id="Password" name="Password" [(ngModel)]="account.Password" placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$">
+      </div>
+      <div class="form-group">
+        <label for="RepeatPassword">Repeat Password</label>
+        <input type="password" class="form-control" #rePass="ngModel" (keyup)="CheckPasswords()" [class.border-danger]="!rePass.valid && rePass.touched" id="RepeatPassword" name="RepeatPassword" [(ngModel)]="account.RepeatPassword" placeholder="RepeatPassword" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$">
+        <small id="passwords" [class.d-none]="passwordsMatch" class="form-text text-danger">Passwords do not match.</small>
+      </div>
+      <div class="row mb-3">
+  
+      </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" [disabled]="!formaSignup.valid || !passwordsMatch" class="btn btn-primary float-end">Submit</button>
+          </div>
+        </div>
+    </form>
+  </div>
+  <div class="col"></div>
+  </div>

@@ -1,0 +1,25 @@
+<div class="row mb-3"></div>
+<div class="row">
+    <div class="col d-flex justify-content-center"><input type="text" id="recipeName" name="recipeName" [(ngModel)]="recipeName" placeholder="Type recipe for filter"/></div>
+    <div class="col d-flex justify-content-center"><input type="text" id="ingredientName" name="ingredientName" [(ngModel)]="ingredientName" placeholder="Type ingredient for filter"/></div>
+    <div class="col d-flex justify-content-center"><button class="btn btn-secondary" (click)="onFilter()">Filter</button></div>
+</div>
+<div class="row ">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col mb-2 d-flex justify-content-center" *ngFor="let recipe of recipes.Recipes">
+        <app-recipe-preview [recipe]="recipe" (onDeleteRecipe)="deleteRecipe($event)"></app-recipe-preview>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <button class="btn btn-outline-primary" *ngIf="isNotFirstPage" (click)="Paging('First')">First</button>
+        <button class="btn btn-outline-primary" *ngIf="isNotFirstPage" (click)="Paging('Prev')">{{recipes.CurrentPage - 1}}</button>
+        <button class="btn btn-primary" *ngIf="hasData">{{recipes.CurrentPage}}</button>
+        <button class="btn btn-outline-primary" *ngIf="isNotLastPage" (click)="Paging('Next')">{{recipes.CurrentPage + 1}}</button>
+        <button class="btn btn-outline-primary" *ngIf="isNotLastPage" (click)="Paging('Last')">Last</button>
+    </div>
+</div>
